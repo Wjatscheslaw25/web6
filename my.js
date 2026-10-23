@@ -16,19 +16,19 @@ window.addEventListener("DOMContentLoaded", function (event) {
         let optionPrice = 0;
         let propertyPrice = 0;
 
-        // Базовая цена для каждого типа
+        // Актуальные базовые цены
         if (selectedType === "1") {
-            basePrice = 1000;
+            basePrice = 15000;
         } else if (selectedType === "2") {
-            basePrice = 2000;
+            basePrice = 35000;
         } else if (selectedType === "3") {
-            basePrice = 3000;
+            basePrice = 60000;
         }
 
         let selectDiv = document.getElementById("select-div");
         let checkboxDiv = document.getElementById("checkbox-div");
 
-        // Управление видимостью и ценами по условиям задания
+        // Управление видимостью по заданию
         if (selectedType === "1") {
             selectDiv.style.display = "none";
             checkboxDiv.style.display = "none";
@@ -38,9 +38,9 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
             let selectElem = document.getElementById("serviceOption");
             if (selectElem.value === "opt1") {
-                optionPrice = 50;
+                optionPrice = 5000;
             } else if (selectElem.value === "opt2") {
-                optionPrice = 100;
+                optionPrice = 15000;
             }
         } else if (selectedType === "3") {
             selectDiv.style.display = "none";
@@ -48,22 +48,20 @@ window.addEventListener("DOMContentLoaded", function (event) {
 
             let checkboxElem = document.getElementById("serviceProperty");
             if (checkboxElem.checked) {
-                propertyPrice = 150;
+                propertyPrice = 20000;
             }
         }
 
-        // Итоговая формула: количество * (база + опция + свойство)
+        // Итоговый расчет
         let totalPrice = amount * (basePrice + optionPrice + propertyPrice);
 
-        // Вывод результата
-        document.getElementById("price").textContent = totalPrice;
+        // Вывод с разделением тысяч
+        document.getElementById("price").textContent = totalPrice.toLocaleString("ru-RU");
     }
 
-    // Слушаем изменения в форме
     let form = document.getElementById("calc-form");
     form.addEventListener("change", calculate);
     form.addEventListener("input", calculate);
 
-    // Первичный расчет при загрузке
     calculate();
 });
