@@ -3,20 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <title>Задание №6 (Юрьев Вячеслав, ПИ-21-1)</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Синяя шапка */
+        .site-header {
+            background-color: #314357;
+            color: #ffffff;
+            padding: 16px 30px;
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Слева Имя, справа Задание №6 */
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Центрирование контента */
+        .page-content {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Карточка калькулятора */
+        .calc-card {
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .calc-card h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #34495e;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .options-block {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        .radio-group label:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        .result-block {
+            margin-top: 25px;
+            padding: 15px;
+            text-align: center;
+            background: #e8f8f5;
+            border-radius: 6px;
+            border: 1px solid #a3e4d7;
+        }
+
+        .result-block h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        #price {
+            color: #16a085;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Простая шапка -->
-    <header class="header">
+    <!-- Синяя шапка -->
+    <header class="site-header">
         <div class="header-container">
-            <span class="author">Юрьев Вячеслав</span>
-            <span class="task-title">Задание №6</span>
+            <span>Юрьев Вячеслав</span>
+            <span>Задание №6</span>
         </div>
     </header>
 
     <!-- Центрированный калькулятор -->
-    <main class="page-container">
+    <main class="page-content">
         <div class="calc-card">
             <h2>Калькулятор стоимости услуг</h2>
             
@@ -27,10 +156,10 @@
                     <input type="number" id="amount" name="amount" value="1" min="1">
                 </div>
 
-                <!-- Выбор типа услуги (3 варианта радиокнопками) -->
+                <!-- Выбор типа услуги радиокнопками (3 варианта) -->
                 <div class="form-group">
                     <label>Тип услуги:</label>
-                    <div class="radio-box">
+                    <div class="options-block radio-group">
                         <label><input type="radio" name="serviceType" value="1" checked> Лендинг (15 000 ₽)</label>
                         <label><input type="radio" name="serviceType" value="2"> Корпоративный сайт (35 000 ₽)</label>
                         <label><input type="radio" name="serviceType" value="3"> Интернет-магазин (60 000 ₽)</label>
@@ -38,7 +167,7 @@
                 </div>
 
                 <!-- Опция товара селектом (для 2 типа) -->
-                <div id="select-div" class="form-group option-box" style="display: none;">
+                <div id="select-div" class="form-group" style="display: none;">
                     <label for="serviceOption">Дизайн-оформление (для Типа 2):</label>
                     <select name="serviceOption" id="serviceOption">
                         <option value="opt1">Стандартный дизайн (+5 000 ₽)</option>
@@ -47,20 +176,23 @@
                 </div>
 
                 <!-- Свойство товара чекбоксом (для 3 типа) -->
-                <div id="checkbox-div" class="form-group option-box" style="display: none;">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="serviceProperty" id="serviceProperty" value="prop1"> Интеграция с платежной системой (для Типа 3, +20 000 ₽)
-                    </label>
+                <div id="checkbox-div" class="form-group" style="display: none;">
+                    <div class="options-block">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="serviceProperty" id="serviceProperty" value="prop1"> Интеграция с платежной системой (для Типа 3, +20 000 ₽)
+                        </label>
+                    </div>
                 </div>
 
                 <!-- Итоговая стоимость -->
-                <div class="result-box">
+                <div class="result-block">
                     <h3>Итого: <span id="price">15000</span> ₽</h3>
                 </div>
             </form>
         </div>
     </main>
 
-    <script src="my.js"></script>
+    <!-- Подключаем скрипт с обновленной версией -->
+    <script src="my.js?v=2"></script>
 </body>
 </html>
