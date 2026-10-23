@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f9f9f9;
+}
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 450px;
+    border: 1px solid #ddd;
+}
+label {
+    display: block;
+    margin-top: 15px;
+}
+input[type="number"], select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+.radio-group, .options-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+}
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+h2 {
+    color: #333;
+    margin-top: 20px;
+}
