@@ -121,3 +121,20 @@ input[type="number"], select {
 #price {
     color: #16a085;
 }
+
+/* Мобильная адаптивность */
+@media (max-width: 600px) {
+    .header-container {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+    .page-container {
+        padding: 20px 10px;
+    }
+    .calc-card {
+        padding: 20px 15px;
+    }
+    .calc-card h2 {
+        font-size: 19px;
+    }
+}
