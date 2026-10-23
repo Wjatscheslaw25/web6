@@ -7,29 +7,21 @@
 </head>
 <body>
 
-    <!-- Шапка сайта (как на скриншоте 2) -->
-    <header class="site-header">
-        <div class="header-content">
-            <div class="logo-name">
-                <span class="logo-icon">🌻</span>
-                <span class="author-name">Юрьев Вячеслав</span>
-            </div>
-            <nav class="nav-links">
-                <a href="#">Ссылки</a>
-                <a href="#">Таблица</a>
-                <a href="#">Анкета</a>
-            </nav>
+    <!-- Простая шапка -->
+    <header class="header">
+        <div class="header-container">
+            <span class="author">Юрьев Вячеслав</span>
+            <span class="task-title">Задание №6</span>
         </div>
     </header>
 
-    <!-- Основной контент с центрированным калькулятором -->
-    <main class="main-content">
-        <div class="calculator-container">
-            <h2>Задание №6</h2>
-            <p class="subtitle">Калькулятор стоимости разработки сайтов</p>
+    <!-- Центрированный калькулятор -->
+    <main class="page-container">
+        <div class="calc-card">
+            <h2>Калькулятор стоимости услуг</h2>
             
             <form id="calc-form">
-                <!-- Поле для ввода количества -->
+                <!-- Количество -->
                 <div class="form-group">
                     <label for="amount">Количество проектов:</label>
                     <input type="number" id="amount" name="amount" value="1" min="1">
@@ -38,7 +30,7 @@
                 <!-- Выбор типа услуги (3 варианта радиокнопками) -->
                 <div class="form-group">
                     <label>Тип услуги:</label>
-                    <div class="radio-group">
+                    <div class="radio-box">
                         <label><input type="radio" name="serviceType" value="1" checked> Лендинг (15 000 ₽)</label>
                         <label><input type="radio" name="serviceType" value="2"> Корпоративный сайт (35 000 ₽)</label>
                         <label><input type="radio" name="serviceType" value="3"> Интернет-магазин (60 000 ₽)</label>
@@ -46,7 +38,7 @@
                 </div>
 
                 <!-- Опция товара селектом (для 2 типа) -->
-                <div id="select-div" class="form-group options-box" style="display: none;">
+                <div id="select-div" class="form-group option-box" style="display: none;">
                     <label for="serviceOption">Дизайн-оформление (для Типа 2):</label>
                     <select name="serviceOption" id="serviceOption">
                         <option value="opt1">Стандартный дизайн (+5 000 ₽)</option>
@@ -55,15 +47,15 @@
                 </div>
 
                 <!-- Свойство товара чекбоксом (для 3 типа) -->
-                <div id="checkbox-div" class="form-group options-box" style="display: none;">
+                <div id="checkbox-div" class="form-group option-box" style="display: none;">
                     <label class="checkbox-label">
                         <input type="checkbox" name="serviceProperty" id="serviceProperty" value="prop1"> Интеграция с платежной системой (для Типа 3, +20 000 ₽)
                     </label>
                 </div>
 
                 <!-- Итоговая стоимость -->
-                <div class="result-block">
-                    <h2>Итого: <span id="price">15000</span> ₽</h2>
+                <div class="result-box">
+                    <h3>Итого: <span id="price">15000</span> ₽</h3>
                 </div>
             </form>
         </div>
