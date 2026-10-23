@@ -2,6 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!-- Добавлен мобильный viewport для адаптивности -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание №6 (Юрьев Вячеслав, ПИ-21-1)</title>
     <style>
         * {
@@ -132,6 +134,26 @@
         #price {
             color: #16a085;
         }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 600px) {
+            .site-header {
+                padding: 12px 15px;
+            }
+            .header-container {
+                font-size: 15px;
+            }
+            .page-content {
+                margin: 20px auto;
+                padding: 0 10px;
+            }
+            .calc-card {
+                padding: 20px 15px;
+            }
+            .calc-card h2 {
+                font-size: 19px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,6 +214,6 @@
         </div>
     </main>
 
-    <script src="my.js?v=4"></script>
+    <script src="my.js?v=5"></script>
 </body>
 </html>
